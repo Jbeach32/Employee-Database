@@ -184,8 +184,11 @@ function addEmployee() {
   const { first_name, last_name, role_id, manager_id } = answers;
   const query = 'INSERT INTO employees (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?)';
   connection.query(query, [first_name, last_name, role_id, manager_id || null], (err, res) => {
-    if (err) throw err;
+    if (err){
+      console.error('Error adding Employee:', err);
+    } else {
     console.log('Employee Added!');
+    }
     runApp();
   })
 })

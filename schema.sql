@@ -11,18 +11,19 @@ CREATE TABLE departments (
 );
 
 
-CREATE TABLE IF NOT EXISTS roles (
+CREATE TABLE roles (
     id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(50) NOT NULL,
     salary DECIMAL(10, 2) NOT NULL,
-    department_id INT NOT NULL
+    department_id INT NOT NULL,
+    FOREIGN KEY (department_id) REFERENCES departments (id)
 );
 
 
-CREATE TABLE IF NOT EXISTS employees (
+CREATE TABLE employees (
     id INT AUTO_INCREMENT PRIMARY KEY,
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
     role_id INT NOT NULL,
-    manager_id INT,
+    manager_id INT
 );
