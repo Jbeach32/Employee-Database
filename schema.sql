@@ -1,9 +1,11 @@
-CREATE DATABASE IF NOT EXISTS company_db;
+DROP DATABASE IF EXISTS company_db;
+
+CREATE DATABASE company_db;
 
 USE company_db;
 
 
-CREATE TABLE IF NOT EXISTS departments (
+CREATE TABLE departments (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(50) NOT NULL
 );
